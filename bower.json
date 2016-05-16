@@ -1,0 +1,23 @@
+{
+  "name": "asm-angular-tooltip",
+  "version": "0.0.1",
+  "main": "./dist/asm-angular-tooltip.js",
+  "description": "A configurable directive to add tooltip elements",
+  "authors": [
+    "Jinn App",
+    "Ander Suarez <me@andersuarez.com>"
+  ],
+  "keywords": [
+    "angular",
+    "directive",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "~1.3.0",
+    "angular-mocks": "~1.3.0"
+  },
+  "dependencies": {
+    "angular": "~1.3.0"
+  }
+}

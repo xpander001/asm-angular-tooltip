@@ -1,0 +1,31 @@
+{
+  "name": "asm-angular-tooltip",
+  "main": "dist/asm-angular-tooltip.js",
+  "version": "0.0.1",
+  "description": "A configurable directive to add tooltip elements",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    "Ander Suarez <me@andersuarez.com>",
+    "Jinn App"
+  ],
+  "keywords": [
+    "angular",
+    "directive",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.1"
+  },
+  "dependencies": {}
+}
