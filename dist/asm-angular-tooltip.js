@@ -18,6 +18,7 @@
     var directive = {
       restrict: 'A',
       scope: {
+        tooltip: '=tooltip'
       },
       link: link,
     };
@@ -25,14 +26,9 @@
     return directive;
 
     function link(scope, elem, attrs) {
-
-      setScope(scope, elem, attrs);
-
+      console.log('pedete');
       /* Private functions */
-
-      function setScope(scope, element, atributes) {
-        scope.el = element;
-      }
+      scope.text = attrs.tooltip;
     }
   }
 

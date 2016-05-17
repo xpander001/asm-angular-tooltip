@@ -1,0 +1,15 @@
+{
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "angular",
+    "require",
+    "exports",
+    "process",
+    "Buffer",
+    "console",
+    "$",
+    "module"
+  ]
+}
+

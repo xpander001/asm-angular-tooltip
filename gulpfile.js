@@ -6,6 +6,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
 var bowerFile = require('./bower.json');
+var karma = require('karma').server;
 
 var appConfig = {
   name: (bowerFile.name || require('./bower.json').appPath || 'asm-angular-tooltip'),
@@ -54,6 +55,15 @@ gulp.task('build-css', function () {
 
 gulp.task('develop', function () {
   gulp.run('browser-sync', 'watch');
+});
+
+gulp.task('test', function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, function() {
+    done();
+  });
 });
 
 gulp.task('build', function () {

@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
   'use strict';
 
@@ -11,22 +11,15 @@
 
     var directive = {
       restrict: 'A',
-      scope: {
-      },
+      scope: false,
       link: link,
     };
 
     return directive;
 
     function link(scope, elem, attrs) {
-
-      setScope(scope, elem, attrs);
-
+      scope.isOpen = false;
       /* Private functions */
-
-      function setScope(scope, element, atributes) {
-        scope.el = element;
-      }
     }
   }
 
