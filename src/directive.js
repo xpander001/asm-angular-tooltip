@@ -34,42 +34,55 @@
         scope.isOpen = false;
         scope.text = attrs.asmAngularTooltip;
 
-        bindEvents();
+        bindElementEvents();
       }
 
-      function bindEvents() {
+      /* Event binding  */
 
-        function onEnter() {
-          $timeout.cancel(closingTimeout);
-          scope.isOpen = true;
-          show();
-        }
+      function onEnter() {
+        $timeout.cancel(closingTimeout);
+        scope.isOpen = true;
+        show();
+      }
 
-        function onleave() {
-          closingTimeout = $timeout(function() {
-            scope.isOpen = false;
-            hide();
-          }, CLOSE_DELAY);
-        }
+      function onleave() {
+        closingTimeout = $timeout(function() {
+          scope.isOpen = false;
+          hide();
+        }, CLOSE_DELAY);
+      }
 
-        elem.bind('mouseenter', onEnter);
-        elem.bind('mouseleave', onleave);
+      function bindTooltipEvents() {
         tooltip.bind('mouseenter', onEnter);
         tooltip.bind('mouseleave', onleave);
-
       }
+
+      function unbindTooltipEvents() {
+        tooltip.unbind('mouseenter', onEnter);
+        tooltip.unbind('mouseleave', onleave);
+      }
+
+      function bindElementEvents() {
+        elem.bind('mouseenter', onEnter);
+        elem.bind('mouseleave', onleave);
+      }
+
+      /* Element addition and position */
 
       function show() {
         elem.after(tooltip);
+        bindTooltipEvents();
         tooltip.addClass(visibleClassName);
       }
 
       function hide() {
         tooltip.remove();
+        unbindTooltipEvents();
         tooltip.toggleClass(visibleClassName);
       }
 
       function positionTooltip() {
+        // Lets position on the right by default
         var offset;
       }
     }
