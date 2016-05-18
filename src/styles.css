@@ -1,0 +1,59 @@
+body {
+  margin: 1em;
+  font: 1em/1.4 sans-serif;
+  height: 100%;
+}
+
+.asm-tooltip {
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  max-width: 200px;
+}
+
+.asm-tooltip-visible {
+  display: inherit;
+}
+
+.asm-tooltip-arrow {
+  position: absolute;
+	width: 0;
+	height: 0;
+}
+
+.asm-tooltip-down .asm-tooltip-arrow {
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #222;
+}
+
+.asm-tooltip-up .asm-tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+	border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #222;
+}
+
+.asm-tooltip-right .asm-tooltip-arrow {
+  left: -5px;
+  top: 50%;
+  margin-top: -3px;
+	border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #222;
+}
+
+.asm-tooltip-left .asm-tooltip-arrow {
+  right: -5px;
+  top: 50%;
+  margin-top: -3px;
+	border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #222;
+}
