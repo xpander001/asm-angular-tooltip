@@ -38,40 +38,35 @@
       }
 
       function bindEvents() {
-        elem.bind('mouseenter', function() {
+
+        function onEnter() {
           $timeout.cancel(closingTimeout);
           scope.isOpen = true;
           show();
-        });
+        }
 
-        elem.bind('mouseleave', function() {
+        function onleave() {
           closingTimeout = $timeout(function() {
             scope.isOpen = false;
             hide();
           }, CLOSE_DELAY);
-        });
+        }
 
-        tooltip.bind('mouseenter', function() {
-          $timeout.cancel(closingTimeout);
-          scope.isOpen = true;
-          show();
-        });
+        elem.bind('mouseenter', onEnter);
+        elem.bind('mouseleave', onleave);
+        tooltip.bind('mouseenter', onEnter);
+        tooltip.bind('mouseleave', onleave);
 
-        tooltip.bind('mouseleave', function() {
-          closingTimeout = $timeout(function() {
-            scope.isOpen = false;
-            hide();
-          }, CLOSE_DELAY);
-        });
       }
 
       function show() {
-        tooltip.addClass(visibleClassName);
         elem.after(tooltip);
+        tooltip.addClass(visibleClassName);
       }
 
       function hide() {
         tooltip.remove();
+        tooltip.toggleClass(visibleClassName);
       }
 
       function positionTooltip() {
