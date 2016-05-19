@@ -87,18 +87,14 @@
         var tooltipWidth;
         var tooltipHeight;
         var tooltipPosition;
+        scope.tooltipPlacement = attrs.tooltipPlacement || 'bottom';
 
-        // // position = appendToBody ? $position.offset( element ) : $position.position( element );
         position = (elem[0]).getBoundingClientRect();
 
-        // Get the height and width of the tooltip so we can center it.
         tooltipWidth = tooltip.prop('offsetWidth');
         tooltipHeight = tooltip.prop('offsetHeight');
 
-        // Calculate the tooltip's top and left coordinates to center it with
-        // this directive.
-        scope.tt_placement = 'bottom';
-        switch (scope.tt_placement) {
+        switch (scope.tooltipPlacement) {
           case 'right':
             tooltipPosition = {
               top: position.top + position.height / 2 - tooltipHeight / 2,
@@ -132,7 +128,6 @@
         tooltipPosition.top += 'px';
         tooltipPosition.left += 'px';
 
-        // Now set the calculated positioning.
         tooltip.css(tooltipPosition);
       }
     }
