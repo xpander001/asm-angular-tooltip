@@ -22,7 +22,7 @@ body {
 	height: 0;
 }
 
-.asm-tooltip-down .asm-tooltip-arrow {
+.asm-tooltip-bottom .asm-tooltip-arrow {
   top: -5px;
   left: 50%;
   margin-left: -5px;
@@ -31,7 +31,7 @@ body {
   border-bottom: 5px solid #222;
 }
 
-.asm-tooltip-up .asm-tooltip-arrow {
+.asm-tooltip-top .asm-tooltip-arrow {
   bottom: -5px;
   left: 50%;
   margin-left: -5px;

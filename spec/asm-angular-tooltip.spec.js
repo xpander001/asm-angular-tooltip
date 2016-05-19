@@ -73,6 +73,27 @@ describe('Asm angular tooltip', function() {
     expect(scope.isOpen).toBe(false);
   });
 
+  it('should rebind after closing', function() {
+    // Enter and exit element hover
+    element.triggerHandler('mouseenter');
+    expect(scope.isOpen).toBe(true);
+    var tooltip = angular.element(elementBody.children()[1]);
+    tooltip.triggerHandler('mouseenter');
+    timeout.flush(1200);
+    expect(scope.isOpen).toBe(true);
+    // Leave tooltip hover
+    tooltip.triggerHandler('mouseleave');
+    timeout.flush(1200);
+    expect(scope.isOpen).toBe(false);
+    // Enter again
+    element.triggerHandler('mouseenter');
+    tooltip = angular.element(elementBody.children()[1]);
+    // Trigger hover on tooltip, expire timeout and check that it's still open
+    tooltip.triggerHandler('mouseenter');
+    timeout.flush(1200);
+    expect(scope.isOpen).toBe(true);
+  });
+
   it('should have text property', function() {
     expect(scope.text).toBeDefined();
     expect(scope.text).toEqual('tooltip text');
