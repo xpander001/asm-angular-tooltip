@@ -105,7 +105,7 @@
           case 'bottom':
             tooltipPosition = {
               top: position.top + position.height + 10,
-              left: position.left
+              left: position.left + position.width / 2 - tooltipWidth / 2
             };
             tooltip.addClass('asm-tooltip-bottom');
             break;
@@ -119,7 +119,7 @@
           default:
             tooltipPosition = {
               top: position.top - tooltipHeight - 10,
-              left: position.left
+              left: position.left + position.width / 2 - tooltipWidth / 2
             };
             tooltip.addClass('asm-tooltip-top');
             break;
