@@ -3,8 +3,8 @@
   'use strict';
 
   angular
-    .module('asmAngularTooltip')
-    .directive('asmAngularTooltip', asmAngularTooltip);
+  .module('asmAngularTooltip')
+  .directive('asmAngularTooltip', asmAngularTooltip);
 
   /* @ngInject */
   function asmAngularTooltip($timeout, $compile) {
@@ -89,7 +89,14 @@
         var tooltipPosition;
         scope.tooltipPlacement = attrs.tooltipPlacement || 'bottom';
 
-        position = (elem[0]).getBoundingClientRect();
+        position = {
+          top: (elem[0]).offsetTop,
+          bottom: (elem[0]).offsetBottom,
+          width: (elem[0]).offsetWidth,
+          height: (elem[0]).offsetHeight,
+          left: (elem[0]).offsetLeft,
+          right: (elem[0]).offsetRight
+        };
 
         tooltipWidth = tooltip.prop('offsetWidth');
         tooltipHeight = tooltip.prop('offsetHeight');
@@ -105,7 +112,7 @@
           case 'bottom':
             tooltipPosition = {
               top: position.top + position.height + 10,
-              left: position.left + position.width / 2 - tooltipWidth / 2
+              left: position.left + position.width / 2 - tooltipWidth / 2 + 2
             };
             tooltip.addClass('asm-tooltip-bottom');
             break;
@@ -119,7 +126,7 @@
           default:
             tooltipPosition = {
               top: position.top - tooltipHeight - 10,
-              left: position.left + position.width / 2 - tooltipWidth / 2
+              left: position.left + position.width / 2 - tooltipWidth / 2 + 2
             };
             tooltip.addClass('asm-tooltip-top');
             break;
